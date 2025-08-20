@@ -51,7 +51,6 @@ main {
 }
 .sidebar-img {
     width: 200px;
-
 }
 .content {
     flex: 1;
@@ -66,7 +65,7 @@ main {
 h2, h3 {
     margin: 0px;
 }
-/*Hover Effect*/
+/*Hover Effects For Nav*/
 nav a{
     color: white;
     text-decoration: none;
@@ -103,19 +102,3 @@ nav a:hover {
     color: white;
 }
 /* fan page */
-.fan-btn {
-   display: inline-block;
-   padding: 10px 20px;
-   background-color: #4CAF50;
-   color: white;
-   font-weight: bold;
-   border: none;
-   border-radius: 8px;
-   text-decoration: none;
-   transition: transform 0.2s background-color 0.2s;
-}
-.fan-btn:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-    cursor: pointer;
-}
