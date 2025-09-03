@@ -5,6 +5,7 @@
     <title>Bouncing Box</title>
     <script src="jquery.min.js"></script>
     <style>
+      
       .box {
         width: 70px;
         height: 70px;
@@ -57,6 +58,7 @@
         // moves the Box to a new position on the screen along the X-Axis
         function moveBoxTo(newPositionX) {
           box.css("left", newPositionX);
+          box.css("top", newPositionY); ////////////////////
         }
 
         // changes the text displayed on the Box
@@ -69,7 +71,11 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-
+var positionX = 0;
+var positionY = 200;
+var points = 0;
+var speedX = 10;  
+var speedY = 10;
 
 
 
@@ -80,10 +86,15 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
+positionX = positionX + speedX;  //the rate at which the box moves on the X plane
+      moveBoxTo(positionX);
+if(positionX >= boardWidth){
+speedX *= -1;
+} else if(positionX <= 0){
+speedX *= -1;
+}
+//
 
-        
-
-          
         }
 
         /**
@@ -94,8 +105,10 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
-
-
+positionX = 0;
+points++;  //adds to score
+changeBoxText(points);  //displays the score
+speedX = 3 * points + 10;  //increase X speed
 
 
         }
