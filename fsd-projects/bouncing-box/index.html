@@ -7,9 +7,11 @@
     <style>
       
       .box {
-        width: 70px;
-        height: 70px;
-        background-color: teal;
+        width: 200px;
+        height: 200px;
+        background-image: url("download-removebg-preview.png");
+        background-size: 200px;
+        background-repeat: no-repeat;
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -21,8 +23,11 @@
       }
 
       .board {
-        height: 100vh;
+       
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUULjP4RVu4QBEe-g1FMVJq4tqObK2PyfYJbCZOTlCJZM-Ng:https://clashfordummies.com/wp-content/uploads/2016/06/img_1323.png&s");
+      
       }
+      
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
   </head>
@@ -72,11 +77,11 @@
 
         // TODO 2 - Variable declarations
 var positionX = 0;
-var positionY = 200;
+var positionY = 0;
 var points = 0;
 var speedX = 10;  
 var speedY = 10;
-
+var boardHeight = jQuery(window).height();
 
 
 
@@ -94,7 +99,17 @@ speedX *= -1;
 speedX *= -1;
 }
 //
+moveBoxTo(positionX, positionY);
 
+positionY += speedY;
+box.css("top", positionY);
+
+if (positionY > boardHeight){
+  speedY *= -1;
+} 
+ if (positionY < 0){
+  speedY *= -1;
+}
         }
 
         /**
@@ -108,8 +123,8 @@ speedX *= -1;
 positionX = 0;
 points++;  //adds to score
 changeBoxText(points);  //displays the score
-speedX = 3 * points + 10;  //increase X speed
-
+speedX = 2.5 * points + 10;  //increase X speed
+speedY = 1.5 * points + 5;
 
         }
 
