@@ -5,7 +5,7 @@
     <title>Bouncing Box</title>
     <script src="jquery.min.js"></script>
     <style>
-      
+      /*CSS for the box*/
       .box {
         width: 200px;
         height: 200px;
@@ -21,9 +21,9 @@
         /* Change me! */
         left: 0px;
       }
-
+/*CSS for the background*/
       .board {
-       
+  
         background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUULjP4RVu4QBEe-g1FMVJq4tqObK2PyfYJbCZOTlCJZM-Ng:https://clashfordummies.com/wp-content/uploads/2016/06/img_1323.png&s");
       
       }
@@ -48,6 +48,7 @@
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
         var boardWidth = board.width(); // the maximum X-Coordinate of the screen
+        var boardHeight = jQuery(window).height(); // the maximum Y-Coordinate of the screen
 
         // update the boardWidth variable when the window is resized
         jQuery(window).on("resize", function () {
@@ -81,7 +82,7 @@ var positionY = 0;
 var points = 0;
 var speedX = 10;  
 var speedY = 10;
-var boardHeight = jQuery(window).height();
+
 
 
 
@@ -93,13 +94,14 @@ var boardHeight = jQuery(window).height();
         function update() {
 positionX = positionX + speedX;  //the rate at which the box moves on the X plane
       moveBoxTo(positionX);
+
 if(positionX >= boardWidth){
 speedX *= -1;
 } else if(positionX <= 0){
 speedX *= -1;
 }
 //
-moveBoxTo(positionX, positionY);
+moveBoxTo(positionX, positionY);  //the rate at which the box moves on the Y plane
 
 positionY += speedY;
 box.css("top", positionY);
@@ -124,7 +126,7 @@ positionX = 0;
 points++;  //adds to score
 changeBoxText(points);  //displays the score
 speedX = 2.5 * points + 10;  //increase X speed
-speedY = 1.5 * points + 5;
+speedY = 1.5 * points + 5;  //increases Y speed 
 
         }
 
